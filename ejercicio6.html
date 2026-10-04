@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <h1>Ejercicio 6: Porcentaje de aciertos en un test</h1>
+
+    <form>
+        <p>
+            <label for="preguntas">Número de preguntas:</label>
+            <input type="text" id="preguntas">
+        </p>
+        <p>
+            <label for="aciertos">Respuestas acertadas:</label>
+            <input type="text" id="aciertos">
+        </p>
+        <p>
+            <input type="button" value="Calcular" onclick="calcular()">
+        </p>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            let preguntas = parseInt(document.getElementById("preguntas").value);
+            let aciertos = parseInt(document.getElementById("aciertos").value);
+            let div = document.getElementById("resultado");
+
+            // Validación de los datos
+            if (isNaN(preguntas) || isNaN(aciertos)) {
+                div.innerHTML = "Debes introducir números en los dos campos";
+            } else if (preguntas <= 0 || aciertos < 0) {
+                div.innerHTML = "Las preguntas deben ser más de 0 y los aciertos no pueden ser negativos";
+            } else if (aciertos > preguntas) {
+                div.innerHTML = "Los aciertos no pueden ser más que las preguntas";
+            } else {
+                let porcentaje = (aciertos / preguntas) * 100;
+                let mensaje;
+
+                if (porcentaje >= 90) {
+                    mensaje = "Excelente";
+                } else if (porcentaje >= 75) {
+                    mensaje = "Muy bien";
+                } else if (porcentaje >= 50) {
+                    mensaje = "Bien";
+                } else {
+                    mensaje = "Resultado ineficiente";
+                }
+
+                div.innerHTML = "Porcentaje de aciertos: " + porcentaje + "% - " + mensaje;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h1>Ejercicio 2: Solicitar datos con formulario</h1>
+
+    <form>
+        <p>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre">
+        </p>
+        <p>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad">
+        </p>
+        <p>
+            <label for="altura">Altura (en metros):</label>
+            <input type="text" id="altura">
+        </p>
+        <p>
+            <input type="checkbox" id="fumador">
+            <label for="fumador">Soy fumador</label>
+        </p>
+        <p>
+            <input type="button" value="Mostrar datos" onclick="mostrarDatos()">
+        </p>
+        <p>
+            <textarea id="resultado" rows="4" cols="60"></textarea>
+        </p>
+    </form>
+
+    <script>
+        function mostrarDatos() {
+            let nombre = document.getElementById("nombre").value;
+            let edad = Number(document.getElementById("edad").value);
+            let altura = Number(document.getElementById("altura").value);
+            let fumador = document.getElementById("fumador").checked;
+
+            // Validación: el nombre no puede estar en blanco
+            if (nombre == "") {
+                alert("El nombre no puede estar en blanco");
+            } else {
+                let textoFumador;
+                if (fumador) {
+                    textoFumador = "eres fumador";
+                } else {
+                    textoFumador = "no eres fumador";
+                }
+
+                let mensaje = "Te llamas " + nombre + ", tienes " + edad + " años, una altura de " + altura + "m y " + textoFumador;
+                document.getElementById("resultado").value = mensaje;
+            }
+        }
+    </script>
+</body>
+</html>

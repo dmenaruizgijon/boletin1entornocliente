@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Ejercicio 3: Suma de números con bucle</h1>
+
+    <script>
+        let cantidad = parseInt(prompt("¿Cuántos números vas a introducir?"));
+        while (isNaN(cantidad) || cantidad <= 0) {
+            cantidad = parseInt(prompt("Valor no válido. ¿Cuántos números vas a introducir?"));
+        }
+
+        let numeros = [];
+
+        for (let i = 0; i < cantidad; i++) {
+            let numero = parseFloat(prompt("Introduce el número " + (i + 1) + ":"));
+
+            while (isNaN(numero)) {
+                numero = parseFloat(prompt("Eso no es un número. Introduce el número " + (i + 1) + ":"));
+            }
+
+            numeros[i] = numero;
+        }
+
+        let suma = 0;
+        for (let i = 0; i < numeros.length; i++) {
+            suma += numeros[i];
+        }
+
+        alert("La suma de los números es: " + suma);
+    </script>
+</body>
+</html>

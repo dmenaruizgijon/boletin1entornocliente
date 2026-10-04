@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Ejercicio 7: Aumento de sueldo</h1>
+
+    <form>
+        <p>
+            <label for="sueldo">Sueldo:</label>
+            <input type="text" id="sueldo">
+        </p>
+        <p>
+            <label for="antiguedad">Años de antigüedad:</label>
+            <input type="text" id="antiguedad">
+        </p>
+        <p>
+            <input type="button" value="Calcular" onclick="calcular()">
+        </p>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            let sueldo = parseFloat(document.getElementById("sueldo").value);
+            let antiguedad = parseInt(document.getElementById("antiguedad").value);
+            let div = document.getElementById("resultado");
+
+            if (isNaN(sueldo) || isNaN(antiguedad) || sueldo < 0 || antiguedad < 0) {
+                div.innerHTML = "Introduce valores numéricos válidos";
+            } else if (sueldo < 500 && antiguedad >= 10) {
+                // Aumento del 20 %
+                let sueldoFinal = sueldo * 1.20;
+                div.innerHTML = "Aumento del 20%. Sueldo a pagar: " + sueldoFinal;
+            } else if (sueldo < 500 && antiguedad < 10) {
+                // Aumento del 5 %
+                let sueldoFinal = sueldo * 1.05;
+                div.innerHTML = "Aumento del 5%. Sueldo a pagar: " + sueldoFinal;
+            } else {
+                // Sueldo >= 500: sin cambios
+                div.innerHTML = "Sin aumento. Sueldo: " + sueldo;
+            }
+        }
+    </script>
+</body>
+</html>

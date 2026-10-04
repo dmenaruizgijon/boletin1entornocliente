@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        
+        let nombre = prompt("Introduce tu nombre:");
+        while (nombre == null || nombre == "") {
+            nombre = prompt("El nombre no puede estar en blanco. Introduce tu nombre:");
+        }
+
+        let edad = Number(prompt("Introduce tu edad:"));
+
+
+        let altura = Number(prompt("Introduce tu altura en metros (ej: 1.62):"));
+
+        
+        let respuesta = prompt("¿Eres fumador? (si/no)");
+        let fumador;
+        if (respuesta == "si") {
+            fumador = true;
+        } else {
+            fumador = false;
+        }
+
+        let textoFumador;
+        if (fumador) {
+            textoFumador = "eres fumador";
+        } else {
+            textoFumador = "no eres fumador";
+        }
+
+        let mensaje = "Te llamas " + nombre + ", tienes " + edad + " años, una altura de " + altura + "m y " + textoFumador;
+
+        alert(mensaje);
+        console.log(mensaje);
+    </script>
+</body>
+</html>

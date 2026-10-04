@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <h1>Ejercicio 4: Volumen de un cilindro</h1>
+
+    <form>
+        <p>
+            <label for="radio">Radio:</label>
+            <input type="text" id="radio">
+        </p>
+        <p>
+            <label for="altura">Altura:</label>
+            <input type="text" id="altura">
+        </p>
+        <p>
+            <input type="button" value="Calcular" onclick="calcular()">
+        </p>
+        <p>
+            <textarea id="resultado" rows="3" cols="50"></textarea>
+        </p>
+    </form>
+
+    <script>
+        const PI = 3.1416;
+
+        // Función que calcula el volumen: V = π · r² · h
+        function volumenCilindro(radio, altura) {
+            return PI * radio * radio * altura;
+        }
+
+        function calcular() {
+            let radio = parseFloat(document.getElementById("radio").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+
+            // Validación de los datos
+            if (isNaN(radio) || isNaN(altura) || radio <= 0 || altura <= 0) {
+                alert("Debes introducir números mayores que 0 en el radio y la altura");
+            } else {
+                let volumen = volumenCilindro(radio, altura);
+                document.getElementById("resultado").value = "El volumen del cilindro es: " + volumen;
+            }
+        }
+    </script>
+</body>
+</html>

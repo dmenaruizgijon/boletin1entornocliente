@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <h1>Ejercicio 8: Tabla de multiplicar</h1>
+
+    <form>
+        <p>
+            <label for="tabla">Tabla del número:</label>
+            <input type="text" id="tabla">
+        </p>
+        <p>
+            <label for="maximo">Valor máximo:</label>
+            <input type="text" id="maximo">
+        </p>
+        <p>
+            <input type="button" value="Generar tabla" onclick="generar()">
+        </p>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function generar() {
+            let tabla = parseInt(document.getElementById("tabla").value);
+            let maximo = parseInt(document.getElementById("maximo").value);
+            let div = document.getElementById("resultado");
+
+            // Validación de los datos
+            if (isNaN(tabla) || isNaN(maximo)) {
+                alert("Debes introducir números en los dos campos");
+            } else if (maximo < 1) {
+                alert("El valor máximo debe ser al menos 1");
+            } else {
+                let salida = "";
+                for (let i = 1; i <= maximo; i++) {
+                    salida += tabla + " x " + i + " = " + (tabla * i) + "<br>";
+                }
+                div.innerHTML = salida;
+            }
+        }
+    </script>
+</body>
+</html>
