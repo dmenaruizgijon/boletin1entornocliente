@@ -32,15 +32,15 @@
             if (isNaN(sueldo) || isNaN(antiguedad) || sueldo < 0 || antiguedad < 0) {
                 div.innerHTML = "Introduce valores numéricos válidos";
             } else if (sueldo < 500 && antiguedad >= 10) {
-                // Aumento del 20 %
+
                 let sueldoFinal = sueldo * 1.20;
                 div.innerHTML = "Aumento del 20%. Sueldo a pagar: " + sueldoFinal;
             } else if (sueldo < 500 && antiguedad < 10) {
-                // Aumento del 5 %
+
                 let sueldoFinal = sueldo * 1.05;
                 div.innerHTML = "Aumento del 5%. Sueldo a pagar: " + sueldoFinal;
             } else {
-                // Sueldo >= 500: sin cambios
+
                 div.innerHTML = "Sin aumento. Sueldo: " + sueldo;
             }
         }

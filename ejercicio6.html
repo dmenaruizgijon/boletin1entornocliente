@@ -29,7 +29,7 @@
             let aciertos = parseInt(document.getElementById("aciertos").value);
             let div = document.getElementById("resultado");
 
-            // Validación de los datos
+
             if (isNaN(preguntas) || isNaN(aciertos)) {
                 div.innerHTML = "Debes introducir números en los dos campos";
             } else if (preguntas <= 0 || aciertos < 0) {

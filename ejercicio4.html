@@ -27,7 +27,6 @@
     <script>
         const PI = 3.1416;
 
-        // Función que calcula el volumen: V = π · r² · h
         function volumenCilindro(radio, altura) {
             return PI * radio * radio * altura;
         }
@@ -36,7 +35,6 @@
             let radio = parseFloat(document.getElementById("radio").value);
             let altura = parseFloat(document.getElementById("altura").value);
 
-            // Validación de los datos
             if (isNaN(radio) || isNaN(altura) || radio <= 0 || altura <= 0) {
                 alert("Debes introducir números mayores que 0 en el radio y la altura");
             } else {
